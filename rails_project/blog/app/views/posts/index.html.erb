@@ -1,0 +1,17 @@
+<h1>Listing posts</h1>
+<%= link_to "New Post", new_post_path %>
+<table>
+	<tr>
+		<td>Title</td>
+		<td>Text</td>
+	</tr>
+	<% @posts.each do |post| %>
+		<tr>
+			<td><%= post.title %></td>
+			<td><%= post.text %></td>
+			<td><%= link_to "Show", post %></td>   <!-- also post_path(post) -->
+			<td><%= link_to "Edit", edit_post_path(post) %></td>
+			<td><%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "are you sure?"} %></td>
+		</tr>
+	<% end %>
+</table>
